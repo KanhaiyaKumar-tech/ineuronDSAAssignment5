@@ -18,7 +18,15 @@ std::vector<int> findDuplicates(std::vector<int>& nums) {
 }
 
 int main() {
-    std::vector<int> nums = {4, 3, 2, 7, 8, 2, 3, 1};
+    //std::vector<int> nums = {4, 3, 2, 7, 8, 2, 3, 1};
+    std::vector<int> nums;
+    int num;
+    while (std::cin >> num) {
+        nums.push_back(num);
+        if (std::cin.peek() == '\n') {
+            break;
+        }
+    }
     std::vector<int> duplicates = findDuplicates(nums);
 
     // Printing the duplicates

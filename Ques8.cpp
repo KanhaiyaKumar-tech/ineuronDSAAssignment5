@@ -4,43 +4,45 @@
 
 std::vector<int> findOriginalArray(std::vector<int>& changed) {
     std::vector<int> original;
-    std::unordered_map<int, int> freqMap;
+    std::unordered_map<int, int> freq;
 
-    // Build frequency map
+    // Count the frequency of each element in the changed array
     for (int num : changed) {
-        freqMap[num]++;
+        ++freq[num];
     }
 
+    // Iterate over the changed array
     for (int num : changed) {
-        if (freqMap[num] == 0) {
-            continue; // Skip if the element is already used
+        // Check if the current element has a corresponding frequency
+        if (freq[num] == 0) {
+            return {};
         }
 
-        int half = num / 2;
-        if (num % 2 == 0 && freqMap[half] > 0) {
-            original.push_back(half);
-            freqMap[half]--;
-        } else {
-            return {}; // Empty array if changed is not a doubled array
-        }
+        // Add the original element to the result and reduce the frequency
+        original.push_back(num / 2);
+        --freq[num];
     }
 
     return original;
 }
 
 int main() {
-    std::vector<int> changed = {1, 3, 4, 2, 6, 8};
-    std::vector<int> original = findOriginalArray(changed);
-
-    // Printing the original array
-    std::cout << "[";
-    for (int i = 0; i < original.size(); i++) {
-        std::cout << original[i];
-        if (i < original.size() - 1) {
-            std::cout << ",";
+    //std::vector<int> changed = {1, 3, 4, 2, 6, 8};
+    std::vector<int> changed;
+    int num;
+    while (std::cin >> num) {
+        changed.push_back(num);
+        if (std::cin.peek() == '\n') {
+            break;
         }
     }
-    std::cout << "]" << std::endl;
+    std::vector<int> original = findOriginalArray(changed);
+
+    //std::cout << "Output: ";
+    for (int num : original) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }

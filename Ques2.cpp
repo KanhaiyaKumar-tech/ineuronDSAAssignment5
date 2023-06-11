@@ -15,7 +15,8 @@ int arrangeCoins(int n) {
 }
 
 int main() {
-    int n = 5;
+    int n ;
+    std::cin>>n;
     int completeRows = arrangeCoins(n);
     std::cout << "Number of complete rows: " << completeRows << std::endl;
     return 0;

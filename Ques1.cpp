@@ -19,9 +19,17 @@ std::vector<std::vector<int>> convertTo2DArray(std::vector<int>& original, int m
 }
 
 int main() {
-    std::vector<int> original = {1, 2, 3, 4};
-    int m = 2;
-    int n = 2;
+    //std::vector<int> original = {1, 2, 3, 4};
+    std::vector<int> original;
+    int num;
+    while (std::cin >> num) {
+        original.push_back(num);
+        if (std::cin.peek() == '\n') {
+            break;
+        }
+    }
+    int m ,n;
+    std::cin>>m>>n;
 
     std::vector<std::vector<int>> result = convertTo2DArray(original, m, n);
 

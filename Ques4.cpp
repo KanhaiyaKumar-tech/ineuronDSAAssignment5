@@ -25,8 +25,24 @@ std::vector<std::vector<int>> findMissingNumbers(std::vector<int>& nums1, std::v
 }
 
 int main() {
-    std::vector<int> nums1 = {1, 2, 3};
-    std::vector<int> nums2 = {2, 4, 6};
+    //std::vector<int> nums1 = {1, 2, 3};
+    std::vector<int> nums1;
+    int num;
+    while (std::cin >> num) {
+        nums1.push_back(num);
+        if (std::cin.peek() == '\n') {
+            break;
+        }
+    }
+    //std::vector<int> nums2 = {2, 4, 6};
+    std::vector<int> nums2;
+    //int num;
+    while (std::cin >> num) {
+        nums2.push_back(num);
+        if (std::cin.peek() == '\n') {
+            break;
+        }
+    }
 
     std::vector<std::vector<int>> result = findMissingNumbers(nums1, nums2);
 

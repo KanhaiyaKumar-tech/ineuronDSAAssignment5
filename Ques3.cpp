@@ -27,7 +27,15 @@ std::vector<int> sortedSquares(std::vector<int>& nums) {
 }
 
 int main() {
-    std::vector<int> nums = {-4, -1, 0, 3, 10};
+    //std::vector<int> nums = {-4, -1, 0, 3, 10};
+    std::vector<int> nums;
+    int num;
+    while (std::cin >> num) {
+        nums.push_back(num);
+        if (std::cin.peek() == '\n') {
+            break;
+        }
+    }
     std::vector<int> result = sortedSquares(nums);
 
     // Printing the result
